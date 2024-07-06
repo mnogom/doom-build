@@ -18,6 +18,8 @@ make run
 * https://www.doomworld.com/forum/topic/115615-original-linuxdoom-in-8-bit-xsession-weird-color-glitch/
 * https://github.com/Akbar30Bill/DOOM_wads
 * https://unix.stackexchange.com/questions/365268/how-do-i-take-a-screen-shot-of-my-xvfb-buffer
+* https://sillyslux.github.io/fluxbox-wiki/en/
+* https://linux.die.net/man/1/x11vnc
 
 # TODO:
 * remove .git from DOOM 

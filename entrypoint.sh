@@ -10,19 +10,29 @@
 
 
 # ================= WORKING PART ===================
-mkdir /root/.fluxbox
+mkdir ~/.fluxbox
 echo "
 session.screen0.toolbar.autoHide:       false
 session.screen0.toolbar.visible:        false
-" > /root/.fluxbox/init
+session.screen0.tab.width:	0
+session.screen0.tabs.intitlebar:	false
+session.screen0.workspaces:	1
+session.screen0.workspaceNames:	DOOM
+session.ignoreBorder:	true
+" > ~/.fluxbox/init
 
-#echo "
-#[app] (name=unnamed)
-#  [Deco]    {0x6}
-#  [Maximized]   {yes}
-#[end]" > /root/.fluxbox/apps
+touch ~/.fluxbox/menu
+touch ~/.fluxbox/keys
+touch ~/.fluxbox/windowmenu
 
-xvfb-run -a --listen-tcp --server-args ":99 -ac -screen 0 320x200x8" /root/DOOM/linuxdoom-1.10/linux/linuxxdoom  &
+echo "
+[app] (name=) (class=)
+  [Deco]    {0x6}
+  [Maximized]   {yes}
+[end]
+" > ~/.fluxbox/apps
+
+xvfb-run -a --listen-tcp --server-args ":99 -ac -screen 0 320x200x8" ~/DOOM/linuxdoom-1.10/linux/linuxxdoom  &
 sleep 3
 fluxbox -display :99 -screen 0 &
 sleep 3
@@ -63,7 +73,7 @@ xwd -display :99 -root -silent | convert xwd:- png:/output/screenshot.png
 #sleep 3
 #x-terminal-emulator &
 #sleep 3
-#/root/DOOM/linuxdoom-1.10/linux/linuxxdoom &
+#~/DOOM/linuxdoom-1.10/linux/linuxxdoom &
 #x11vnc -display :99.0 -forever
 
 
