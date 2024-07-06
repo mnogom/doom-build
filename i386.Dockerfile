@@ -7,6 +7,9 @@ ENV DOOMVADOOMWADDIR="/root/DOOM/linuxdoom-1.10/linux/doom1.wad"
 RUN apt update; apt upgrade && \
     apt install -y make gcc libx11-dev:i386 libxtst-dev:i386 libxext-dev:i386 git xvfb fluxbox x11vnc xterm
 
+# for making screenshots
+RUN apt install -y imagemagick x11-apps
+
 # build DOOM
 COPY ./DOOM /root/DOOM
 COPY conf-doom/DOOM-lunkums.patch /root/DOOM/DOOM-lunkums.patch

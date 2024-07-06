@@ -24,6 +24,7 @@ run-i386: build-i386
 		--rm -it \
 		--name doom-i386 \
 		--publish 8900:5900 \
+		--volume=./output/:/output/ \
 		doom-i386
 
 bash-i386: build-i386
