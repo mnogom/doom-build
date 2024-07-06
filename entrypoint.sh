@@ -36,7 +36,7 @@ xvfb-run -a --listen-tcp --server-args ":99 -ac -screen 0 320x200x8" ~/DOOM/linu
 sleep 3
 fluxbox -display :99 -screen 0 &
 sleep 3
-x11vnc -display :99.0 -forever -8to24
+x11vnc -display :99.0 -forever -flashcmap -shiftcmap -notruecolor # -nofb -visual TrueColor # -8to24
 #sleep 7
 ## make screenshot
 #xwd -display :99 -root -silent | convert xwd:- png:/output/screenshot.png
