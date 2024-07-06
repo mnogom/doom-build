@@ -11,7 +11,7 @@ RUN apt update; apt upgrade && \
 RUN apt install -y imagemagick x11-apps
 
 # setup fluxbox
-#COPY fluxbox.conf.d /root/.fluxbox
+COPY fluxbox.conf.d /root/.fluxbox
 
 # build DOOM
 COPY ./DOOM /root/DOOM
