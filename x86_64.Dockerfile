@@ -10,7 +10,7 @@ RUN apt update; apt upgrade && \
 
 # build DOOM
 COPY ./DOOM /root/DOOM
-COPY conf-doom/DOOM-lunkums.patch /root/DOOM/DOOM-lunkums.patch
+COPY doom.conf.d/DOOM-lunkums.patch /root/DOOM/DOOM-lunkums.patch
 RUN pushd /root/DOOM && \
     git apply DOOM-lunkums.patch && \
     popd && \
@@ -22,7 +22,7 @@ RUN pushd /root/DOOM && \
 #    cp linux/sndserver /root/DOOM/linuxdoom-1.10/linux/ && \
 #    popd
 
-COPY conf-doom/doom1.wad /root/DOOM/linuxdoom-1.10/linux/doom1.wad
+COPY doom.conf.d/doom1.wad /root/DOOM/linuxdoom-1.10/linux/doom1.wad
 
 WORKDIR /root/DOOM/linuxdoom-1.10/linux
 

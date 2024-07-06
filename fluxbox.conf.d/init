@@ -1,0 +1,7 @@
+session.screen0.toolbar.autoHide:       false
+session.screen0.toolbar.visible:        false
+session.screen0.tab.width:	0
+session.screen0.tabs.intitlebar:	false
+session.screen0.workspaces:	1
+session.screen0.workspaceNames:	DOOM
+session.ignoreBorder:	true

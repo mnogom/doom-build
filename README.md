@@ -20,6 +20,9 @@ make run
 * https://unix.stackexchange.com/questions/365268/how-do-i-take-a-screen-shot-of-my-xvfb-buffer
 * https://sillyslux.github.io/fluxbox-wiki/en/
 * https://linux.die.net/man/1/x11vnc
+* https://habr.com/ru/articles/62905/
+* https://habr.com/ru/articles/62905/
+* https://www.opennet.ru/man.shtml?topic=x11vnc&category=1&russian=2
 
 # TODO:
 * remove .git from DOOM 
