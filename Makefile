@@ -5,7 +5,7 @@ build-x84_64:
 		--file ./x86_64.Dockerfile \
 		.
 
-run-x84_64: build-x84_64
+run-x84_64:	build-x84_64
 	docker run \
 		--rm -it \
 		--name doom-x86_64 \
@@ -19,20 +19,12 @@ build-i386:
 		--file ./i386.Dockerfile \
 		.
 
-run-i386: build-i386
+run-i386:	build-i386
 	docker run \
 		--rm -it \
 		--name doom-i386 \
 		--publish 8900:5900 \
 		--volume=./output/:/output/ \
-		doom-i386
-
-bash-i386: build-i386
-	docker run \
-		--rm -it \
-		--name doom-i386 \
-		--publish 8900:5900 \
-		--entrypoint /bin/bash \
 		doom-i386
 
 run:	run-x84_64

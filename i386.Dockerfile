@@ -1,9 +1,10 @@
 FROM i386/debian:12.6-slim
-LABEL authors="konstantinfreidlin"
+LABEL authors="konstantin freidlin"
 
 SHELL [ "/bin/bash", "-c" ]
 ENV DOOMVADOOMWADDIR="/root/DOOM/linuxdoom-1.10/linux/doom1.wad"
 
+# install dependencies
 RUN apt update; apt upgrade && \
     apt install -y make gcc libx11-dev:i386 libxtst-dev:i386 libxext-dev:i386 git xvfb fluxbox x11vnc
 
@@ -29,6 +30,5 @@ RUN pushd /root/DOOM && \
 COPY doom.conf.d/doom1.wad /root/DOOM/linuxdoom-1.10/linux/doom1.wad
 WORKDIR /root/DOOM/linuxdoom-1.10/linux
 
-COPY ./entrypoint.sh /
+COPY entrypoints/run-doom.sh /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
-#ENTRYPOINT [ "/bin/bash" ]

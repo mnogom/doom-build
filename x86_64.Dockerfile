@@ -1,12 +1,18 @@
 FROM debian:12.6-slim
-LABEL authors="konstantinfreidlin"
+LABEL authors="konstantin freidlin"
 
 SHELL [ "/bin/bash", "-c" ]
 ENV DOOMVADOOMWADDIR="/root/DOOM/linuxdoom-1.10/linux/doom1.wad"
 
 # install dependencies
 RUN apt update; apt upgrade && \
-    apt install -y make gcc libx11-dev libxtst-dev git xvfb fluxbox x11vnc xterm
+    apt install -y make gcc libx11-dev libxtst-dev libxext-dev git xvfb fluxbox x11vnc
+
+# for making screenshots
+RUN apt install -y imagemagick x11-apps
+
+# setup fluxbox
+COPY fluxbox.conf.d /root/.fluxbox
 
 # build DOOM
 COPY ./DOOM /root/DOOM
@@ -21,29 +27,8 @@ RUN pushd /root/DOOM && \
 #    make && \
 #    cp linux/sndserver /root/DOOM/linuxdoom-1.10/linux/ && \
 #    popd
-
 COPY doom.conf.d/doom1.wad /root/DOOM/linuxdoom-1.10/linux/doom1.wad
-
 WORKDIR /root/DOOM/linuxdoom-1.10/linux
 
-COPY ./entrypoint.sh /
+COPY entrypoints/run-doom.sh /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
-
-# xrandr
-# xdpyinfo
-
-#    apt install -y make gcc libx11-dev \
-#        x11-xserver-utils libxtst-dev xserver-xorg-video-dummy \
-#        lightdm git python3 python3-setuptools python3-distro wget && \
-#    git clone https://github.com/Xpra-org/xpra && \
-#    pushd xpra && \
-#    ./setup.py install-repo && \
-#    popd
-
-#Xvfb :99 -ac -listen tcp -screen 0 640x480x8 &
-#sleep 3
-#/usr/bin/fluxbox -display :99 -screen 0 &
-#sleep 3
-#xvfb-run ./linuxdoom &
-#sleep 3
-#x11vnc -display :99.0 -forever
