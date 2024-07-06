@@ -1,3 +1,10 @@
+fetch:
+	git clone https://github.com/id-Software/DOOM.git && \
+	pushd DOOM && \
+	git checkout a77dfb96cb && \
+	rm -rf .git &&
+	popd
+
 build-x84_64:
 	docker build \
 		--tag doom-x86_64 \

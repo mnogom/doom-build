@@ -1,11 +1,6 @@
 # HOWTO
 ```bash
-git clone https://github.com/mnogom/doom-build.git
-cd doom-build
-https://github.com/id-Software/DOOM.git
-pushd DOOM
-git checkout a77dfb9
-popd
+make fetch
 make run
 ```
 
